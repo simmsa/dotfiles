@@ -1,0 +1,16 @@
+set completion-ignore-case on
+# set show-all-if-ambiguous on
+set editing-mode vi
+# TAB: menu-complete
+
+$if mode=vi
+    set keymap vi-command
+    "h": next-history
+    "t": previous-history
+    "d": backward-char
+    "n": forward-char
+
+    # set keymap vi-insert
+    # "ht": vi-movement-mode
+$endif
+
