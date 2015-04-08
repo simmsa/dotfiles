@@ -1,7 +1,7 @@
 #Personal Aliases
 
 source ~/dotfiles/local_aliases.zsh
-alias md="mkdir"
+alias md="mkdir -p"
 alias bk="cd .."
 alias py3="python3"
 alias edz="vim ~/dotfiles/zshrc"
