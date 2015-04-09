@@ -175,4 +175,8 @@ preexec() {
     fi
 }
 
-archey -c
+if [[ "$(uname)" == "Darwin" ]]; then
+    archey -c
+elif [[ "$(uname)" == "Linux" && "$(whoami)" == "vagrant" ]]; then
+    screenfetch
+fi
