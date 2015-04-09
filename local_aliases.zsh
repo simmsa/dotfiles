@@ -1,6 +1,8 @@
 # Old habits die hard
-alias vim="nvim"
-alias vi="nvim"
+if hash nvim 2>/dev/null; then
+    alias vim="nvim"
+    alias vi="nvim"
+fi
 
 alias goog="google"
 alias va="vagrant"
