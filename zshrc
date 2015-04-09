@@ -109,7 +109,7 @@ bindkey '^S' beginning-of-line
 # Don't have to press enter twice out of autocomplete
 bindkey -M menuselect '^M' .accept-line
 
-if ["$(uname)" == "Darwin"]; then
+if [[ "$(uname)" == "Darwin" ]]; then
     # Start tmux when terminal starts
     if command -v tmux>/dev/null; then
           [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
@@ -126,7 +126,7 @@ if ["$(uname)" == "Darwin"]; then
 
     # Latex Setup
     eval `/usr/libexec/path_helper -s`
-elif ["$(uname)" == "Linux" && "$(whoami)" == "vagrant"]; then
+elif [[ "$(uname)" == "Linux" && "$(whoami)" == "vagrant" ]]; then
     # Vagrant machine setup
     export TERM=screen-256color
 

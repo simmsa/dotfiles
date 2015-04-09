@@ -1,5 +1,5 @@
 # Old habits die hard
-if hash nvim 2>/dev/null; then
+if [ hash nvim 2>/dev/null ]; then
     alias vim="nvim"
     alias vi="nvim"
 fi
