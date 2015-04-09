@@ -109,22 +109,32 @@ bindkey '^S' beginning-of-line
 # Don't have to press enter twice out of autocomplete
 bindkey -M menuselect '^M' .accept-line
 
-# Start tmux when terminal starts
-if command -v tmux>/dev/null; then
-      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+if ["$(uname)" == "Darwin"]; then
+    # Start tmux when terminal starts
+    if command -v tmux>/dev/null; then
+          [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+    fi
+
+     # Java Stuff
+    export CLASSPATH=$CLASSPATH:~/algs4/stdlib.jar:~/algs4/algs4.jar
+
+    # Android Stuff
+    export PATH=$PATH:~/Library/Android/sdk/tools:~/Library/Android/sdk/platform-tools
+
+    # Gtk+ Stuff
+    export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
+    # Latex Setup
+    eval `/usr/libexec/path_helper -s`
+elif ["$(uname)" == "Linux" && "$(whoami)" == "vagrant"]; then
+    # Vagrant machine setup
+    export TERM=screen-256color
+
+    # Linuxbrew
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 fi
-
- # Java Stuff
-export CLASSPATH=$CLASSPATH:~/algs4/stdlib.jar:~/algs4/algs4.jar
-
-# Android Stuff
-# export PATH=$PATH:~/Library/Android/sdk/tools:~/Library/Android/sdk/platform-tools
-
-# Gtk+ Stuff
-export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
-
-# Latex Setup
-eval `/usr/libexec/path_helper -s`
 
 # Tmux tabs can be renamed
 DISABLE_AUTO_TITLE=true
