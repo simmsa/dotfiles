@@ -34,7 +34,7 @@ md2pdf() {
     cp $1.md $1.mdpp && \
     markdown-pp $1.mdpp $1_comp.md && \
     md2html $1_comp.md > $1.html && \
-    wkhtmltopdf --page-size Letter $1.html $1.pdf && \
+    wkhtmltopdf --page-size Letter --javascript-delay 25000 $1.html $1.pdf && \
     open $1.pdf
     rm $1.mdpp && \
     rm $1_comp.md
