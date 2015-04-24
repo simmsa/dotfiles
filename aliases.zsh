@@ -16,6 +16,7 @@ alias gemdir="gem env gemdir"
 alias x="exit"
 alias gpp="g++"
 alias j="jump"
+alias gs="git status"
 mcd() {
     mkdir -p "$1" && cd "$1"
 }
