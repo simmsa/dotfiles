@@ -62,7 +62,7 @@ entry () {
     vim $DATE.md
 }
 # Create notes file and open in vim
-notes () {
+note () {
     DIR=${PWD##*/}
     FILENAME="$(echo $DIR)_notes.md"
     if [ ! -f $FILENAME ]
