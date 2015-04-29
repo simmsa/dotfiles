@@ -29,6 +29,7 @@ alias stop_eclim="$ECLIPSE_HOME/eclim -command shutdown"
 alias markdown-pp="~/Desktop/Programming/python/markdown-pp/markdown-pp.py"
 alias edmdcss="vim ~/Desktop/Programming/markdown/md_components/Clearness-Fira.css"
 export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-java/4.4.0/eclipse"
+alias get_makefile="cp ~/Desktop/Programming/C/Makefile ."
 md2pdf() {
     echo "Compiling $1.md into $1.pdf..."
     cp $1.md $1.mdpp && \
@@ -73,3 +74,4 @@ note () {
     vim $FILENAME
 
 }
+alias notes="note"
