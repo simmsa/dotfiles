@@ -1,5 +1,6 @@
 # Old habits die hard
 if type "nvim" > /dev/null; then
+    export NVIM_TUI_ENABLE_TRUE_COLOR=1
     alias vim="nvim"
     alias vi="nvim"
 fi
@@ -30,6 +31,7 @@ alias markdown-pp="~/Desktop/Programming/python/markdown-pp/markdown-pp.py"
 alias edmdcss="vim ~/Desktop/Programming/markdown/md_components/Clearness-Fira.css"
 export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-java/4.4.0/eclipse"
 alias get_makefile="cp ~/Desktop/Programming/C/Makefile ."
+alias myvim="/Users/macuser/Desktop/Programming/neovim/build/bin/nvim"
 md2pdf() {
     echo "Compiling $1.md into $1.pdf..."
     cp $1.md $1.mdpp && \
