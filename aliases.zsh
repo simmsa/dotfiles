@@ -23,7 +23,7 @@ mcd() {
 alias tmux_rename_window='tmux rename-window $(basename $(pwd))'
 alias plz='sudo $(fc -ln -1)'
 # Show Colors
-alias showcolors='for code in {0..255}; do echo -e "\e[38;05;${code}m $code: Test"; done'
+alias showcolors='for i in {0..255}; do echo -e "\e[38;05;${i}m${i}"; done | column -c 150 -s '"'"'  '"'"'; echo -e "\e[m"'
 alias ....="cd ../../.."
 
 alias l="ls -lh"
