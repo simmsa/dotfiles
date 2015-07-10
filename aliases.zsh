@@ -17,6 +17,9 @@ alias x="exit"
 alias gpp="g++"
 alias j="jump"
 alias gs='git status'
+alias objcopy="gobjcopy"
+alias objdump="gobjdump"
+
 mcd() {
     mkdir -p "$1" && cd "$1"
 }
