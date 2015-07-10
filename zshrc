@@ -105,7 +105,7 @@ bindkey '^w' backward-kill-word
 bindkey '^e' end-of-line
 bindkey '^f' forward-char
 bindkey '^B' backward-char
-bindkey '^S' beginning-of-line
+bindkey '^a' beginning-of-line
 # Don't have to press enter twice out of autocomplete
 bindkey -M menuselect '^M' .accept-line
 
