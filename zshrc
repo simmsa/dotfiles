@@ -79,6 +79,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 #Adding go to the path
 # export PATH="$PATH:$GOPATH/bin"
 
+# Add timelapse scripts
+export PATH="$PATH:/Users/macuser/Desktop/Programming/ruby/make_timelapse_preview"
+
 # ZSH in vim command line
 export ZDOTDIR=$HOME
 
