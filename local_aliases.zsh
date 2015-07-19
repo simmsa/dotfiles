@@ -32,6 +32,9 @@ alias edcss="vim ~/Desktop/Programming/markdown/md_components/bootstrap/sass/_cu
 export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-java/4.4.0/eclipse"
 alias get_makefile="cp ~/Desktop/Programming/C/Makefile ."
 alias myvim="/Users/macuser/Desktop/Programming/neovim/build/bin/nvim"
+# Log what vim is doing to find the cause of errors and segfaults
+alias vimdb="vim -V20vimlog"
+
 md2pdf() {
     echo "Compiling $1.md into $1.pdf..."
     cp $1.md $1.mdpp && \
