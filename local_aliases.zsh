@@ -25,6 +25,9 @@ alias pgstart="postgres -D /usr/local/var/postgres"
 alias py="/usr/local/bin/python"
 alias ipy='ipython qtconsole --stylesheet="~/Desktop/Programming/python/ipython/stylesheet/ipy_stylesheet.css" --ConsoleWidget.font_family="Fira Mono" --ConsoleWidget.font_size=24 --matplotlib inline --pylab --style=monokai'
 
+# Hacky way to start vim with Gstatus open and jump to the first entry
+alias gs="vim -c 'Gstatus | winc w | bd | exe \"normal \\<C-n>\"' ."
+
 alias org-mode='vim -c "call OrgAgenda()"'
 alias fixsound="sudo killall coreaudiod"
 alias start_eclim="$ECLIPSE_HOME/eclimd"
