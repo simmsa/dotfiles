@@ -1,0 +1,20 @@
+source ~/.nvim/nvimrc
+
+nnoremap cp :action Run<CR>
+nnoremap cd :action Debug<CR>
+nnoremap so :source ~/.ideavimrc<CR>
+nnoremap go :action GotoFile<CR>
+nnoremap gcc :action CommentByLineComment<CR>
+" Close the bottom window
+nnoremap sn :action HideAllWindows<CR>
+nnoremap sq :action VimWindowClose<CR>
+nnoremap <C-n> <Down>
+nnoremap <C-t> <Up>
+set visualbell
+set noerrorbells
+
+nnoremap ss :action NextSplitter<CR>
+
+nnoremap sf :action CollapseRegionRecursively<CR>
+nnoremap su :action ExpandRegionRecursively<CR>
+
