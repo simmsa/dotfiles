@@ -16,7 +16,6 @@ alias gemdir="gem env gemdir"
 alias x="exit"
 alias gpp="g++"
 alias j="jump"
-alias gs='git status'
 alias objcopy="gobjcopy"
 alias objdump="gobjdump"
 
