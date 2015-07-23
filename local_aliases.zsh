@@ -30,11 +30,8 @@ alias gs="vim -c 'Gstatus | winc w | bd | exe \"normal \\<C-n>\"' ."
 
 alias org-mode='vim -c "call OrgAgenda()"'
 alias fixsound="sudo killall coreaudiod"
-alias start_eclim="$ECLIPSE_HOME/eclimd"
-alias stop_eclim="$ECLIPSE_HOME/eclim -command shutdown"
 alias markdown-pp="~/Desktop/Programming/python/markdown-pp/markdown-pp.py"
 alias edcss="vim ~/Desktop/Programming/markdown/md_components/bootstrap/sass/_custom.scs"
-export ECLIPSE_HOME="/opt/homebrew-cask/Caskroom/eclipse-java/4.4.0/eclipse"
 alias get_makefile="cp ~/Desktop/Programming/C/Makefile ."
 alias myvim="/Users/macuser/Desktop/Programming/neovim/build/bin/nvim"
 # Log what vim is doing to find the cause of errors and segfaults
