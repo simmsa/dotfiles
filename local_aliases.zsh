@@ -4,16 +4,13 @@
 
 alias chrome="open /Applications/Google\ Chrome.app"
 alias chruby="vim ~/Desktop/Programming/ruby/rubycheatsheet.md"
-alias codekit="open /Applications/CodeKit.app"
 alias color="open /Applications/Utilities/DigitalColor\ Meter.app"
 alias edcss="vim ~/Desktop/Programming/markdown/md_components/bootstrap/sass/_custom.scss"
 alias fixsound="sudo killall coreaudiod"
-alias get_makefile="cp ~/Desktop/Programming/C/Makefile ."
 alias goog="google"
 alias gs="vim -c 'Gstatus | winc w | bd | exe \"normal \\<C-n>\"' ."
 alias ipy='ipython qtconsole --stylesheet="~/Desktop/Programming/python/ipython/stylesheet/ipy_stylesheet.css" --ConsoleWidget.font_family="Fira Mono" --ConsoleWidget.font_size=24 --matplotlib inline --pylab --style=monokai'
 alias less="less -k"
-alias mamp="open /Applications/MAMP/MAMP.app"
 alias markdown-pp="~/Desktop/Programming/python/markdown-pp/markdown-pp.py"
 alias myvim="/Users/macuser/Desktop/Programming/neovim/build/bin/nvim"
 alias org-mode='vim -c "call OrgAgenda()"'
