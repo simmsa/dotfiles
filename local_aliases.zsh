@@ -5,57 +5,34 @@ if type "nvim" > /dev/null; then
     alias vi="nvim"
 fi
 
-alias goog="google"
-alias va="vagrant"
 alias chrome="open /Applications/Google\ Chrome.app"
-alias mamp="open /Applications/MAMP/MAMP.app"
+alias chruby="vim ~/Desktop/Programming/ruby/rubycheatsheet.md"
 alias codekit="open /Applications/CodeKit.app"
 alias color="open /Applications/Utilities/DigitalColor\ Meter.app"
-# Cheatsheets
-alias tipvim="vim ~/Desktop/Programming/vim/vim_cheatsheet.md"
-alias chruby="vim ~/Desktop/Programming/ruby/rubycheatsheet.md"
-alias chrails="vim ~/Desktop/Programming/ruby/rails/railscheatsheet.md"
-alias tipruby="vim ~/Desktop/Programming/ruby/rubytips.md"
-alias tipc="vim ~/Desktop/Programming/C/c_tips.md"
-alias tipgit="vim ~/Desktop/Programming/git/git-tips.md"
-
+alias edcss="vim ~/Desktop/Programming/markdown/md_components/bootstrap/sass/_custom.scs"
+alias fixsound="sudo killall coreaudiod"
+alias get_makefile="cp ~/Desktop/Programming/C/Makefile ."
+alias goog="google"
+alias gs="vim -c 'Gstatus | winc w | bd | exe \"normal \\<C-n>\"' ."
+alias ipy='ipython qtconsole --stylesheet="~/Desktop/Programming/python/ipython/stylesheet/ipy_stylesheet.css" --ConsoleWidget.font_family="Fira Mono" --ConsoleWidget.font_size=24 --matplotlib inline --pylab --style=monokai'
 alias less="less -k"
-
+alias mamp="open /Applications/MAMP/MAMP.app"
+alias markdown-pp="~/Desktop/Programming/python/markdown-pp/markdown-pp.py"
+alias myvim="/Users/macuser/Desktop/Programming/neovim/build/bin/nvim"
+alias org-mode='vim -c "call OrgAgenda()"'
 alias pgstart="postgres -D /usr/local/var/postgres"
 alias py="/usr/local/bin/python"
-alias ipy='ipython qtconsole --stylesheet="~/Desktop/Programming/python/ipython/stylesheet/ipy_stylesheet.css" --ConsoleWidget.font_family="Fira Mono" --ConsoleWidget.font_size=24 --matplotlib inline --pylab --style=monokai'
-
-# Hacky way to start vim with Gstatus open and jump to the first entry
-alias gs="vim -c 'Gstatus | winc w | bd | exe \"normal \\<C-n>\"' ."
-
-alias org-mode='vim -c "call OrgAgenda()"'
-alias fixsound="sudo killall coreaudiod"
-alias markdown-pp="~/Desktop/Programming/python/markdown-pp/markdown-pp.py"
-alias edcss="vim ~/Desktop/Programming/markdown/md_components/bootstrap/sass/_custom.scs"
-alias get_makefile="cp ~/Desktop/Programming/C/Makefile ."
-alias myvim="/Users/macuser/Desktop/Programming/neovim/build/bin/nvim"
-# Log what vim is doing to find the cause of errors and segfaults
+alias tipc="vim ~/Desktop/Programming/C/c_tips.md"
+alias tipgit="vim ~/Desktop/Programming/git/git-tips.md"
+alias tiprails="vim ~/Desktop/Programming/ruby/rails/railscheatsheet.md"
+alias tipruby="vim ~/Desktop/Programming/ruby/rubytips.md"
+alias tipvim="vim ~/Desktop/Programming/vim/vim_cheatsheet.md"
+alias va="vagrant"
 alias vimdb="vim -V20vimlog"
 
-md2pdf() {
-    echo "Compiling $1.md into $1.pdf..."
-    cp $1.md $1.mdpp && \
-    markdown-pp $1.mdpp $1_comp.md && \
-    md2html $1_comp.md > $1.html && \
-    wkhtmltopdf --page-size Letter --javascript-delay 25000 $1.html $1.pdf && \
-    open $1.pdf
-    rm $1.mdpp && \
-    rm $1_comp.md
-}
-#Reload Chrome on command
+# Reload Chrome on command
 chrome_reload () {
     osascript -e 'tell application "Google Chrome"' -e 'tell the active tab of its first window' -e 'reload' -e 'end tell' -e 'end tell'
-}
-# Quit application on command
-quit () {
-  for app in $*; do
-    osascript -e 'quit app "'$app'"';
-  done
 }
 
 # Writing
@@ -69,6 +46,18 @@ entry () {
 
     vim $DATE.md
 }
+
+md2pdf() {
+    echo "Compiling $1.md into $1.pdf..."
+    cp $1.md $1.mdpp && \
+    markdown-pp $1.mdpp $1_comp.md && \
+    md2html $1_comp.md > $1.html && \
+    wkhtmltopdf --page-size Letter --javascript-delay 25000 $1.html $1.pdf && \
+    open $1.pdf
+    rm $1.mdpp && \
+    rm $1_comp.md
+}
+
 # Create notes file and open in vim
 note () {
     DIR=${PWD##*/}
@@ -82,3 +71,10 @@ note () {
 
 }
 alias notes="note"
+
+# Quit application on command
+quit () {
+  for app in $*; do
+    osascript -e 'quit app "'$app'"';
+  done
+}
