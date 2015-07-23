@@ -11,6 +11,8 @@ alias goog="google"
 alias ipy='ipython qtconsole --stylesheet="~/Desktop/Programming/python/ipython/stylesheet/ipy_stylesheet.css" --ConsoleWidget.font_family="Fira Mono" --ConsoleWidget.font_size=24 --matplotlib inline --pylab --style=monokai'
 alias markdown-pp="~/Desktop/Programming/python/markdown-pp/markdown-pp.py"
 alias myvim="/Users/macuser/Desktop/Programming/neovim/build/bin/nvim"
+alias objcopy="gobjcopy"
+alias objdump="gobjdump"
 alias org-mode='vim -c "call OrgAgenda()"'
 alias pgstart="postgres -D /usr/local/var/postgres"
 alias tipc="vim ~/Desktop/Programming/C/c_tips.md"
@@ -18,6 +20,7 @@ alias tipgit="vim ~/Desktop/Programming/git/git-tips.md"
 alias tiprails="vim ~/Desktop/Programming/ruby/rails/railscheatsheet.md"
 alias tipruby="vim ~/Desktop/Programming/ruby/rubytips.md"
 alias tipvim="vim ~/Desktop/Programming/vim/vim_cheatsheet.md"
+alias tmux_rename_window='tmux rename-window $(basename $(pwd))'
 alias va="vagrant"
 
 # Reload Chrome on command

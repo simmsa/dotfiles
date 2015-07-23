@@ -25,8 +25,6 @@ alias j="jump"
 alias l="ls -lh"
 alias less="less -k"
 alias md="mkdir -p"
-alias objcopy="gobjcopy"
-alias objdump="gobjdump"
 alias plz='sudo $(fc -ln -1)'
 alias pry="pry --simple-prompt"
 alias py="python"
@@ -34,7 +32,6 @@ alias py3="python3"
 alias rs="rails s -p 8888"
 alias scz="source ~/.zshrc"
 alias showcolors='for i in {0..255}; do echo -e "\e[38;05;${i}m${i}"; done | column -c 150 -s '"'"'  '"'"'; echo -e "\e[m"'
-alias tmux_rename_window='tmux rename-window $(basename $(pwd))'
 alias x="exit"
 alias vimdb="vim -V20vimlog"
 
