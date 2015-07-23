@@ -2,13 +2,6 @@
 
 # These file contains aliases specific to the different systems I use.
 
-# Old habits die hard
-if type "nvim" > /dev/null; then
-    export NVIM_TUI_ENABLE_TRUE_COLOR=1
-    alias vim="nvim"
-    alias vi="nvim"
-fi
-
 alias chrome="open /Applications/Google\ Chrome.app"
 alias chruby="vim ~/Desktop/Programming/ruby/rubycheatsheet.md"
 alias codekit="open /Applications/CodeKit.app"
