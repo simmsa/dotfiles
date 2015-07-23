@@ -1,0 +1,6 @@
+#command
+h forw-line
+t back-line
+d forw-scroll
+n back-scroll
+
