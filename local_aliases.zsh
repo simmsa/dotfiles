@@ -2,6 +2,8 @@
 
 # These file contains aliases specific to the different systems I use.
 
+if [[ "$(uname)" == "Darwin" && "$(hostname)" == "as_macbook" ]]; then
+
 alias chrome="open /Applications/Google\ Chrome.app"
 alias chruby="vim ~/Desktop/Programming/ruby/rubycheatsheet.md"
 alias color="open /Applications/Utilities/DigitalColor\ Meter.app"
@@ -71,3 +73,5 @@ quit () {
     osascript -e 'quit app "'$app'"';
   done
 }
+
+fi
