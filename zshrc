@@ -5,7 +5,7 @@ export PATH="$PATH:/usr/local/heroku/bin:/opt/X11/bin:"
 
 export PATH="$PATH:/Users/macuser/dotfiles/bin:"
 
-export EDITOR='/usr/local/bin/vim'
+export EDITOR='/usr/local/bin/nvim'
 
 # Source my Aliases
 source ~/dotfiles/aliases.zsh
