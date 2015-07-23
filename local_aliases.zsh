@@ -1,3 +1,7 @@
+# Local Aliases
+
+# These file contains aliases specific to the different systems I use.
+
 # Old habits die hard
 if type "nvim" > /dev/null; then
     export NVIM_TUI_ENABLE_TRUE_COLOR=1

@@ -1,4 +1,7 @@
-#Personal Aliases
+# Common Aliases
+
+# This file contains aliases I want on all systems I use.
+
 
 source ~/dotfiles/local_aliases.zsh
 alias md="mkdir -p"
