@@ -25,7 +25,7 @@ alias tipvim="vim ~/Desktop/Programming/vim/vim_cheatsheet.md"
 alias tmux_rename_window='tmux rename-window $(basename $(pwd))'
 alias va="vagrant"
 
-# Reload Chrome on command
+#Reload Chrome on command
 chrome_reload () {
     osascript -e 'tell application "Google Chrome"' -e 'tell the active tab of its first window' -e 'reload' -e 'end tell' -e 'end tell'
 }
