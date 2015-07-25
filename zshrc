@@ -107,6 +107,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
     # Latex Setup
     eval `/usr/libexec/path_helper -s`
 
+    # FZF setup
+    export FZF_DEFAULT_OPTS='--bind ctrl-t:up'
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
     archey -c
 
 elif [[ "$(uname)" == "Linux" && "$(whoami)" == "vagrant" ]]; then

@@ -8,6 +8,7 @@ alias chrome="open /Applications/Google\ Chrome.app"
 alias chruby="vim ~/Desktop/Programming/ruby/rubycheatsheet.md"
 alias color="open /Applications/Utilities/DigitalColor\ Meter.app"
 alias edcss="vim ~/Desktop/Programming/markdown/md_components/bootstrap/sass/_custom.scss"
+alias f="fzf"
 alias fixsound="sudo killall coreaudiod"
 alias goog="google"
 alias ipy='ipython qtconsole --stylesheet="~/Desktop/Programming/python/ipython/stylesheet/ipy_stylesheet.css" --ConsoleWidget.font_family="Fira Mono" --ConsoleWidget.font_size=24 --matplotlib inline --pylab --style=monokai'
@@ -40,6 +41,54 @@ entry () {
     fi
 
     vim $DATE.md
+}
+
+# fzf copy file path to system clipboard (used for images mostly)
+fcpath() {
+    local file
+    file=$(fzf --query="$1" --select-1 --exit-0)
+    osascript \
+        -e 'on run args' \
+        -e 'set the clipboard to POSIX file (first item of args)' \
+        -e end \
+        "$(pwd)/$file"
+}
+
+# fzf change directory, directly from fzf wiki
+fd() {
+  local dir
+  dir=$(find ${1:-*} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# fzf edit, directly from fzf wiki
+fe() {
+    local file
+    file=$(fzf --query="$1" --select-1 --exit-0)
+    [ -n "$file" ] && ${EDITOR:-nvim} "$file"
+}
+
+# fh repeat history, directly from fzf wiki
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+# fkill kill process, directly from fzf wiki
+fkill() {
+    local pid
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+    if [[ "x$pid" != "x" ]]; then
+        kill -${1:-9} $pid
+    fi
+}
+
+# fzf open, edited from fzf wiki
+fo() {
+    local file
+    file=$(fzf --query="$1" --select-1 --exit-0)
+    [ -n "$file" ] && open "$file"
 }
 
 md2pdf() {
