@@ -64,11 +64,13 @@ zstyle ':completion:*' matcher-list '' \
 'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
 'r:[[:ascii:]]||[[:ascii:]]=** r:|=* m:{a-z\-}={A-Z\_}'
 
+export TRUNCATE_MAX_WORD_LEN=12
+
 # Redraw the current dir, truncated to the first 8 characters
 precmd() {
     CURRENT_DIR=$(basename $(pwd))
     DIR_LEN=${#CURRENT_DIR}
-    if [ $DIR_LEN -gt 8 ]
+    if [ $DIR_LEN -gt $(echo $TRUNCATE_MAX_WORD_LEN) ]
     then
         # Print the first four characters..last four characters
         printf '\033k%.4s…%s\033\\' $CURRENT_DIR $(echo ${CURRENT_DIR:(-4)})
@@ -81,7 +83,7 @@ precmd() {
 preexec() {
     EXECUTING_COMMAND=$(print -Pn '$1:q' | sed 's/\\//g')
     COMMAND_LEN=${#EXECUTING_COMMAND}
-    if [ $COMMAND_LEN -gt 8 ]
+    if [ $COMMAND_LEN -gt  $(echo $TRUNCATE_MAX_WORD_LEN) ]
     then
         printf '\033k%.4s…%s\033\\' $EXECUTING_COMMAND $(echo ${EXECUTING_COMMAND:(-4)})
     else
