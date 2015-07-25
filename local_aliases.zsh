@@ -91,6 +91,39 @@ fo() {
     [ -n "$file" ] && open "$file"
 }
 
+# fzf tmux pane
+fpane() {
+    local all_panes panes current_window current_pane prev_pane target target_window target_pane
+
+    # Preserve whitespace for easier grepping
+    set IFS='%'
+    all_panes=$(tmux list-panes -s -F '#I:#P - #W - #{pane_current_path} -  #{pane_current_command}')
+    unset IFS
+    current_window=$(tmux display-message  -p '#I')
+    current_pane=$(tmux display-message -p '#P')
+    prev_pane=$(($current_pane - 1))
+
+    # Remove the calling pane and the previous pane before fzfing
+    panes=$(echo "$all_panes" | grep -v $current_window:$current_pane | grep -v $current_window:$prev_pane)
+
+    target=$(echo "$panes" | fzf) || return
+
+    target_window=$(echo $target | awk 'BEGIN{FS=":|-"} {print$1}')
+    target_pane=$(echo $target | awk 'BEGIN{FS=":|-"} {print$2}' | cut -c 1)
+
+
+    if [[ $current_window -eq $target_window ]]; then
+        tmux select-pane -t ${target_window}.${target_pane}
+    else
+        tmux select-pane -t ${target_window}.${target_pane} &&
+        tmux select-window -t $target_window
+    fi
+
+    # Kill the created pane
+    tmux kill-pane $current_window.$this_pane
+
+}
+
 md2pdf() {
     echo "Compiling $1.md into $1.pdf..."
     cp $1.md $1.mdpp && \
