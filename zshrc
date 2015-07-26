@@ -1,5 +1,8 @@
 # Antigen controls oh my zsh, including themes and plugins
-source ~/dotfiles/antigenrc.zsh
+# source ~/dotfiles/antigenrc.zsh
+
+# Trying zgen, supposed to be faster than Antigen
+time source ~/dotfiles/zgenrc.zsh
 
 export PATH="$PATH:/usr/local/heroku/bin:/opt/X11/bin:"
 
@@ -113,7 +116,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export FZF_DEFAULT_OPTS='--bind ctrl-t:up'
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-    archey -c
+    time archey -c
 
 elif [[ "$(uname)" == "Linux" && "$(whoami)" == "vagrant" ]]; then
     # Vagrant machine setup
