@@ -1,0 +1,74 @@
+#!/usr/local/bin/zsh
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: vc-config <file without the '.'>"
+    exit 1
+fi
+
+HELP_REGEX="-h|--help|help"
+
+if [[ $1 =~ $HELP_REGEX ]]; then
+    echo
+    echo "vc-config adds the given config file to your dotfiles folder,"
+    echo "then sources that file from within the original file. Then"
+    echo "it commits that file to the git repo."
+    echo
+    echo "Usage: vc-config <file without the '.'>"
+    echo
+    exit 1
+fi
+
+
+INITIAL_FILE_LOC=~/.$1
+DEST_FILE_LOC=~/dotfiles/$1
+DOTFILES_DIR=~/dotfiles
+
+# Used for printing
+TILDE="~"
+LITERAL_INITIAL_FILE_LOC="$TILDE/.$1"
+LITERAL_DEST_FILE_LOC="$TILDE/dotfiles/$1"
+LITERAL_DOTFILES_DIR="$TILDE/dotfiles"
+
+echo $INITIAL_FILE_LOC
+
+
+if [[ -f "$INITIAL_FILE_LOC" ]]; then
+    # File exists
+
+    if [[ -f $DEST_FILE_LOC ]]; then
+        echo "Error: $LITERAL_DEST_FILE_LOC already exists!"
+        exit 1
+    fi
+
+    # Move into ~ dir
+    cd
+    echo "Moving $LITERAL_INITIAL_FILE_LOC to $LITERAL_DEST_FILE_LOC"
+    # exit 0
+    mv $INITIAL_FILE_LOC $DEST_FILE_LOC
+    echo "Sourcing $LITERAL_DEST_FILE_LOC to $LITERAL_INITIAL_FILE_LOC"
+    touch $INITIAL_FILE_LOC
+    echo "source $LITERAL_DEST_FILE_LOC" > $INITIAL_FILE_LOC
+
+    echo "Do you want to add and commit this file? (y/n)"
+    read -r response
+    if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        echo "Adding $LITERAL_DEST_FILE_LOC to version control"
+        cd $DOTFILES_DIR
+        git add $1
+        echo "Committing..."
+        git commit -m "Run Commands(*rc): Add $1 config file"
+        echo "$LITERAL_INITIAL_FILE_LOC added to version control"
+    fi
+
+    # Move back to previous dir
+    cd -
+
+    echo
+    echo "vc-config complete"
+    echo
+else
+    # File does not exist
+    echo "Error: could not find ~/.$LITERAL_INITIAL_FILE_LOC ..."
+    exit 1
+fi
+
