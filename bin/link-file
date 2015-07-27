@@ -1,0 +1,45 @@
+#!/usr/local/bin/zsh
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: link-file <file without the '.'>"
+    exit 1
+fi
+
+HELP_REGEX="-h|--help|help"
+
+if [[ $1 =~ $HELP_REGEX ]]; then
+    echo
+    echo "link-file symbolically links the file given with the file in"
+    echo "~/dotfiles/master-link-files folder within the current directory"
+    echo
+    echo "Usage: link-file <file without the '.'>"
+    echo
+    exit 1
+fi
+
+
+MASTER_LINK_FILE_LOC=~/dotfiles/master-link-files
+MASTER_LINK_FILE=$MASTER_LINK_FILE_LOC/$1
+
+# Used for printing
+TILDE="~"
+LITERAL_MASTER_LINK_FILE_LOC="$TILDE/dotfiles/master-link-files"
+LITERAL_MASTER_LINK_FILE="$LITERAL_MASTER_LINK_FILE_LOC/$1"
+
+if [[ -f "$MASTER_LINK_FILE" ]]; then
+    # File exists
+
+    if [[ -f $1 ]]; then
+        echo "Error: $1 already exists!"
+        exit 1
+    fi
+
+    ln -s $MASTER_LINK_FILE $1
+
+    echo "Sucessfully linked $LITERAL_MASTER_LINK_FILE with $1!"
+else
+    # File does not exist
+    echo "Error: could not find $LITERAL_MASTER_LINK_FILE..."
+    exit 1
+fi
+
