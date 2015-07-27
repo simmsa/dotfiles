@@ -68,6 +68,7 @@ fe() {
     file=$(fzf --query="$1" --select-1 --exit-0)
     [ -n "$file" ] && ${EDITOR:-nvim} "$file"
 }
+alias e=fe
 
 # fh repeat history, directly from fzf wiki
 fh() {
