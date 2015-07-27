@@ -157,4 +157,8 @@ quit () {
   done
 }
 
+vig() {
+    vim $(git ls-files -m -o --exclude-standard)
+}
+
 fi
