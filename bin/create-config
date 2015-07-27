@@ -1,0 +1,57 @@
+#!/usr/local/bin/zsh
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: create-config <file without the '.'>"
+    exit 1
+fi
+
+HELP_REGEX="-h|--help|help"
+
+if [[ $1 =~ $HELP_REGEX ]]; then
+    echo
+    echo "create-config creates the given config file inside the dotfiles"
+    echo "directory, sources that file from the home (\"~\") directory"
+    echo "then opens the file in vim for editing"
+    echo
+    echo "Usage: create-config <file without the '.'>"
+    echo
+    exit 1
+fi
+
+
+INITIAL_FILE_LOC=~/.$1
+DEST_FILE_LOC=~/dotfiles/$1
+DOTFILES_DIR=~/dotfiles
+
+# Used for printing
+TILDE="~"
+LITERAL_INITIAL_FILE_LOC="$TILDE/.$1"
+LITERAL_DEST_FILE_LOC="$TILDE/dotfiles/$1"
+LITERAL_DOTFILES_DIR="$TILDE/dotfiles"
+
+echo $INITIAL_FILE_LOC
+
+
+if [[ -f "$INITIAL_FILE_LOC" ]]; then
+    # File exists
+    echo "Error: $LITERAL_INITIAL_FILE_LOC already exists!"
+    exit 1
+else
+    # File does not exist
+    if [[ -f $DEST_FILE_LOC ]]; then
+        # Destination file exists
+        echo "Error: $LITERAL_DEST_FILE_LOC already exists!"
+        exit 1
+    fi
+
+    echo "Creating $LITERAL_INITIAL_FILE_LOC..."
+    touch $INITIAL_FILE_LOC
+    echo "source $LITERAL_DEST_FILE_LOC" > $INITIAL_FILE_LOC
+
+    echo "Creating $LITERAL_DEST_FILE_LOC..."
+    touch $DEST_FILE_LOC
+
+    vim $DEST_FILE_LOC
+    exit 0
+fi
+
