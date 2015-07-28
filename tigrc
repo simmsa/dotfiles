@@ -19,3 +19,6 @@ color default color78 default normal
 
 # Use vim for diffs
 bind generic D !git difftool --tool=vimdiff --no-prompt %(commit) %(commit)~1
+
+# Copy the current commit ID to the clipboard
+bind generic y @sh -c "echo %(commit) | pbcopy"
