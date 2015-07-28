@@ -63,12 +63,16 @@ fd() {
 }
 
 # fzf edit, directly from fzf wiki
-fe() {
+fzf-edit-file() {
     local file
-    file=$(fzf --query="$1" --select-1 --exit-0)
-    [ -n "$file" ] && ${EDITOR:-nvim} "$file"
+    file=$(fzf --select-1 --exit-0)
+    [ -n "$file" ] && nvim $file
 }
-alias e=fe
+# bindkey -s runs the string literally
+# This is the only way I could get this to work
+# For some reason making this a zle command and running with bindkey
+# without args bricks this command
+bindkey -s '^o' "fzf-edit-file"
 
 # fh repeat history, directly from fzf wiki
 fh() {
