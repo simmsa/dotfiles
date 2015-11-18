@@ -110,7 +110,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
     # Latex Setup
-    eval `/usr/libexec/path_helper -s`
+    export PATH=$PATH:/Library/TeX/texbin
 
     # FZF setup
     export FZF_DEFAULT_OPTS='--bind ctrl-t:up'
