@@ -115,6 +115,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     # FZF setup
     export FZF_DEFAULT_OPTS='--bind ctrl-t:up'
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
 
     time archey -c
 
