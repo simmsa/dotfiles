@@ -108,7 +108,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     export PATH=$PATH:~/Library/Android/sdk/tools:~/Library/Android/sdk/platform-tools
 
     # Gtk+ Stuff
-    export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+    export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 
     # Latex Setup
     export PATH=$PATH:/Library/TeX/texbin
