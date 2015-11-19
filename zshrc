@@ -1,10 +1,11 @@
+# Easier to do this than workaround OS X Rootless "feature"
+export PATH="/usr/local/bin:$PATH:/usr/local/heroku/bin:/opt/X12/bin:"
+
 # Antigen controls oh my zsh, including themes and plugins
 # source ~/dotfiles/antigenrc.zsh
 
 # Trying zgen, supposed to be faster than Antigen
-time source ~/dotfiles/zgenrc.zsh
-
-export PATH="$PATH:/usr/local/heroku/bin:/opt/X11/bin:"
+source ~/dotfiles/zgenrc.zsh
 
 export PATH="$PATH:/Users/macuser/dotfiles/bin:"
 
