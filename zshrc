@@ -118,7 +118,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
     export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
 
-    time archey -c
+    # -o disables ip address checking, making archey fast.
+    archey -c -o
 
 elif [[ "$(uname)" == "Linux" && "$(whoami)" == "vagrant" ]]; then
     # Vagrant machine setup
