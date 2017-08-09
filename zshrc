@@ -98,7 +98,9 @@ preexec() {
 if [[ "$(uname)" == "Darwin" ]]; then
     # Start tmux when terminal starts
     if command -v tmux>/dev/null; then
-          [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+        if [[ ! "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
+            [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+        fi
     fi
 
      # Java Stuff
