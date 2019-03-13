@@ -1,5 +1,8 @@
-# Easier to do this than workaround OS X Rootless "feature"
-export PATH="/usr/local/bin:$PATH:/usr/local/heroku/bin:/opt/X12/bin:"
+# Homebrew
+export PATH="/usr/local/bin:$PATH"
+
+# Heroku
+export PATH="$PATH:/usr/local/heroku/bin"
 
 # Antigen controls oh my zsh, including themes and plugins
 # source ~/dotfiles/antigenrc.zsh
