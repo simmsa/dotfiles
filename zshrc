@@ -4,10 +4,7 @@ export PATH="/usr/local/bin:$PATH"
 # Heroku
 export PATH="$PATH:/usr/local/heroku/bin"
 
-# Antigen controls oh my zsh, including themes and plugins
-# source ~/dotfiles/antigenrc.zsh
-
-# Trying zgen, supposed to be faster than Antigen
+# Init zgen https://github.com/tarjoilija/zgen
 source ~/dotfiles/zgenrc.zsh
 
 export PATH="$PATH:/Users/macuser/dotfiles/bin:"
