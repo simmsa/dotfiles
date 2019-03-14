@@ -18,6 +18,7 @@ alias objcopy="gobjcopy"
 alias objdump="gobjdump"
 alias org-mode='vim -c "call OrgAgenda()"'
 alias pgstart="postgres -D /usr/local/var/postgres"
+alias realvim="/usr/local/bin/vim"
 alias tipc="vim ~/Desktop/Programming/C/c_tips.md"
 alias tipgit="vim ~/Desktop/Programming/git/git-tips.md"
 alias tiprails="vim ~/Desktop/Programming/ruby/rails/railscheatsheet.md"
