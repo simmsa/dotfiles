@@ -31,8 +31,11 @@ export PYTHONSTARTUP="/Users/macuser/.pyrc"
 
 # Set bash to vi mode
 set -o vi
-# Faster key timeout
-export KEYTIMEOUT=3
+
+# Faster key timeout is zsh
+# See: https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+# Turning this on/off doesn't feel different
+export KEYTIMEOUT=1
 
 # Change esc to jk in vi mode
 bindkey -M vicmd "h" down-line-or-history
