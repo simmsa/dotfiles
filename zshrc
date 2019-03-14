@@ -17,10 +17,6 @@ source ~/dotfiles/aliases.zsh
 #Terminal Colors
 export CLICOLOR=1;
 
-#Python virtualenvwrapper config
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Add timelapse scripts
 export PATH="$PATH:/Users/macuser/Desktop/Programming/ruby/make_timelapse_preview"
 
