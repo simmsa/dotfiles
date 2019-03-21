@@ -8,10 +8,10 @@ bind generic X quit
 # set main-view = line-number:no,interval=5 id:no date:relative author:abbreviated commit-title:yes,refs,overflow=no
 set main-view = \
         line-number:no,interval=5 \
-        id:no \
+        id:yes \
         date:relative,width:6 \
         author:abbreviated \
-        commit-title:yes,refs=false,graph=true,overflow=no
+        commit-title:yes,refs=true,graph=true,overflow=no
 color cursor yellow color8 normal
 color title-focus color8 color255 normal
 color author color4 default normal
