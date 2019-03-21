@@ -4,6 +4,7 @@ bind generic ? view-help
 bind generic x view-close
 bind generic H move-last-line
 bind generic T move-first-line
+bind generic X quit
 # set main-view = line-number:no,interval=5 id:no date:relative author:abbreviated commit-title:yes,refs,overflow=no
 set main-view = \
         line-number:no,interval=5 \
