@@ -2,9 +2,7 @@
 
 # This file contains aliases I want on all systems I use.
 
-# Use neovim with true color if it is available
 if type "nvim" > /dev/null; then
-    export NVIM_TUI_ENABLE_TRUE_COLOR=1
     alias vim="nvim"
     alias vi="nvim"
 fi
